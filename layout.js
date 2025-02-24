@@ -4,9 +4,7 @@ let divElm = document.createElement("div")
 divElm.id = "root"
 
 divElm.innerHTML = `
-    <header>
-        <span class="brand">Pokédex</span>
-    </header>
+    <header></header>
     <main></main>
     <footer>Created 2025</footer> 
 `

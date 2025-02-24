@@ -1,0 +1,26 @@
+.card{
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.card__pokemon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 22rem;
+    width: 22rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    margin: 1.25rem;
+}
+
+.card__pokemon--img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 10rem;
+}
+

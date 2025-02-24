@@ -1,0 +1,9 @@
+body{
+    background-color: red;
+}
+
+.pokelist{
+    background-color: white;
+    width: 75rem;
+    border-radius: 1rem;
+}
