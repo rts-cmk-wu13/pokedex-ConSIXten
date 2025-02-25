@@ -9,6 +9,21 @@ function getIdFromPokemon(pokemonUrl) {
 
 const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork";
 
+let navElm = document.createElement("nav");
+navElm.className = "navigation";
+navElm.innerHTML = `
+    <div>
+   <a href=""><img class="navigation__icon" src="pokeball.svg" alt=""></a>
+        <h1>Pokédex</h1>
+    </div>
+    <div>
+        <input class="navigation__input" type="search" name="" id="" placeholder="Search . . .">
+        <button class="navigation__btn">Search</button>
+    </div>
+`;
+document.querySelector("header").append(navElm);
+
+
 // Create the section element
 let sectionElm = document.createElement("section");
 sectionElm.className = "pokelist";
@@ -21,9 +36,11 @@ fetch("https://pokeapi.co/api/v2/pokemon/")
                 <article class="card__pokemon">
                     <p>#${getIdFromPokemon(pokemon.url).padStart(4, "0")}</p>
                     <figure class="card__pokemon--img">
-                        <img src="${artworkUrl}/${getIdFromPokemon(pokemon.url)}.png" alt="${pokemon.name}">
+                    <img src="${artworkUrl}/${getIdFromPokemon(pokemon.url)}.png" alt="${pokemon.name}">
                     </figure>
+                    <div class="card__pokemon--backdrop">
                     <h2>${pokemon.name}</h2>
+                    </div>
                 </article>
             </a>
         `).join("");

@@ -1,4 +1,31 @@
 .header{
-    background-color: red;
+    background-color: #DC0A2D;
     color: white;
+}
+
+/*-------- NAVIGATION --------*/
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.navigation__input{
+    border-radius: 1rem;
+    padding: 0.25rem;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+    padding-inline: 1rem;
+}
+
+.navigation__btn{
+    background-color: white;
+    color: black;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
 }

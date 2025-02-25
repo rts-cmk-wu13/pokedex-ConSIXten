@@ -4,7 +4,7 @@ let divElm = document.createElement("div")
 divElm.id = "root"
 
 divElm.innerHTML = `
-    <header></header>
+    <header class="header"></header>
     <main></main>
     <footer>Created 2025</footer> 
 `

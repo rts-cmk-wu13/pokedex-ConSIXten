@@ -1,9 +1,13 @@
 body{
-    background-color: red;
+    background-color: #DC0A2D;
 }
 
 .pokelist{
     background-color: white;
     width: 75rem;
     border-radius: 1rem;
+}
+
+html{
+    font-family: 'poppins', sans-serif;
 }

@@ -14,13 +14,14 @@ fetch("https://pokeapi.co/api/v2/pokemon/"+pokeName)
             <h1> ${pokemon.name} </h1>
             <p>#${pokemon.id.toString().padStart(4, "0")}</p>
         </div>
-                <article class="card__pokemon">
-                    <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="">
+                <article class="card__details">
+                    <figure>
+                        <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="">
+                    </figure>
                     ${pokemon.stats.map(stat => `
                         <p>${stat.stat.name}: ${stat.base_stat}</p>
                     `).join("")}
                 </article>
-            </a>
         `
     });
 
