@@ -9,6 +9,21 @@ function getIdFromPokemon(pokemonUrl) {
 
 const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork";
 
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            currentOffset = currentOffset + 50;
+            if (currentOffset < 1304) {
+                fetchPokemon(currentOffset);
+            }else{
+            console.log("No more pokemons")
+            
+        }
+    }
+    })
+
+})
+
 let navElm = document.createElement("nav");
 navElm.className = "navigation";
 navElm.innerHTML = `
@@ -28,10 +43,19 @@ document.querySelector("header").append(navElm);
 let sectionElm = document.createElement("section");
 sectionElm.className = "pokelist";
 
-fetch("https://pokeapi.co/api/v2/pokemon/")
-    .then(response => response.json())
-    .then(data => {
-        sectionElm.innerHTML = data.results.map(pokemon => `
+
+let currentOffset = 0;
+
+function fetchPokemon(offset) {
+
+fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`)
+    .then(function(response) {
+        return response.json();
+    }).then(
+        function(data) {
+            console.log();
+            
+        sectionElm.innerHTML += data.results.map(pokemon => `
             <a href="details.html?pokemon=${pokemon.name}" class="card__pokemon--link">
                 <article class="card__pokemon">
                     <p>#${getIdFromPokemon(pokemon.url).padStart(4, "0")}</p>
@@ -44,6 +68,15 @@ fetch("https://pokeapi.co/api/v2/pokemon/")
                 </article>
             </a>
         `).join("");
+
+        let observedPokemon = sectionElm.querySelector("a:nth-last-child(5)");
+        
+        observer.observe(observedPokemon);
+
     });
 
 document.querySelector("main").append(sectionElm);
+
+}
+
+fetchPokemon(currentOffset);
