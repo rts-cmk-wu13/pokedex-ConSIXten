@@ -7,6 +7,9 @@ function getIdFromPokemon(pokemonUrl) {
     return pokemonUrl.slice(0, -1).split("/").pop();
 }
 
+let mainElm = document.querySelector("main");
+mainElm.className = "homeBg";
+
 const artworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork";
 
 const observer = new IntersectionObserver(function(entries) {
@@ -23,6 +26,16 @@ const observer = new IntersectionObserver(function(entries) {
     })
 
 })
+
+// const imgObserver = new IntersectionObserver(function(entries) {
+//     entries.forEach(function(entry) {
+//         if (entry.isIntersecting) {
+//             entry.target.src = entry.target.dataset.imagesrc;
+//             imgObserver.unobserve(entry.target);
+//         }
+//     })
+// }
+// )
 
 let navElm = document.createElement("nav");
 navElm.className = "navigation";
@@ -60,7 +73,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`)
                 <article class="card__pokemon">
                     <p>#${getIdFromPokemon(pokemon.url).padStart(4, "0")}</p>
                     <figure class="card__pokemon--img">
-                    <img src="${artworkUrl}/${getIdFromPokemon(pokemon.url)}.png" alt="${pokemon.name}">
+                    <img loading="lazy" class="pokemon__img" src="${artworkUrl}/${getIdFromPokemon(pokemon.url)}.png" alt="${pokemon.name}">
                     </figure>
                     <div class="card__pokemon--backdrop">
                     <h2>${pokemon.name}</h2>
@@ -70,9 +83,12 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=50`)
         `).join("");
 
         let observedPokemon = sectionElm.querySelector("a:nth-last-child(5)");
-        
         observer.observe(observedPokemon);
 
+    //     let ObservedImgs = sectionElm.querySelectorAll("img");
+    //     ObservedImgs.forEach(img => {
+    //         imgObserver.observe(img);
+    //     })
     });
 
 document.querySelector("main").append(sectionElm);

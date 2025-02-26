@@ -1,0 +1,26 @@
+.details__stats{
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+.details__stats--headline{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details__info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.details__info--gray{
+    color: #666666;
+}
+
+/* .details__img{
+    
+} */
