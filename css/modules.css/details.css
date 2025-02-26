@@ -1,3 +1,8 @@
+.details{
+    display: flex;
+    flex-direction: column;
+}
+
 .details__stats{
     width: 100%;
     border: none;
@@ -21,6 +26,16 @@
     color: #666666;
 }
 
-/* .details__img{
-    
-} */
+.details__img--flexbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details__card{
+
+}
+
+.pokelist__details{
+    background-color: var(--dynamic-bg-color);
+}

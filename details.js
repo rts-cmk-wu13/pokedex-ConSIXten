@@ -3,12 +3,8 @@ let params = new URLSearchParams(search);
 let pokeName = params.get("pokemon");
 
 let sectionElm = document.createElement("section");
-sectionElm.className = "pokelist";
+sectionElm.className = "pokelist__details";
 
-// Function to get background color based on Pokémon type
-function getTypeColor(type) {
-    return getComputedStyle(document.documentElement).getPropertyValue(`--${type}`).trim() || "#68A090"; // Default color if not found
-}
 
 fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName)
     .then(response => response.json())
@@ -22,21 +18,22 @@ fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName)
                 let flavorTextEntry = species.flavor_text_entries.find(entry => entry.language.name === "en");
                 let flavorText = flavorTextEntry ? flavorTextEntry.flavor_text.replace(/\n|\f/g, ' ') : "No description available.";
 
-                // Get the primary type of the Pokémon (lowercase)
-                const primaryType = pokemon.types[0].type.name.toLowerCase();
-
-                // Get the color from the CSS variable
-                const typeColor = getTypeColor(primaryType);
 
                 sectionElm.innerHTML = `
+                <div class="details__card no-columns" >
                 <div>
                     <h1>${pokemon.name}</h1>
                     <p>#${pokemon.id.toString().padStart(4, "0")}</p>
                 </div>
-                <article class="details__card" style="background-color: ${typeColor}">
-                    <figure class="details__img">
-                        <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}">
-                    </figure> 
+                <article class="details">
+                    <div class="details__img--flexbox">
+                        <figure>
+                            <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}">
+                        </figure> 
+                    </div>
+                    <div>
+                        <span>${pokemon.types.map(type => type.type.name).join(", ")}</span>
+                    </div>
                     <div class="details__info">
                         <div>
                             <img src="" alt="">
@@ -64,6 +61,7 @@ fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName)
                         </div>
                     `).join("")}
                 </article>
+                </div>
                 `;
             });
     });
