@@ -62,7 +62,7 @@ fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName)
 
                     ${pokemon.stats.map(stat => `
                     <article class="details__stats">
-                        <div class="details__stats--flex">
+                        <div class="details__s">
                             <label for="${stat.stat.name}">${stat.stat.name}</label>
                             <span>${stat.base_stat}</span>
                             <meter class="details__meter" id="${stat.stat.name}" value="${stat.base_stat}" min="0" max="255"></meter>
