@@ -23,6 +23,8 @@ li{
     overflow-x: hidden;
 }
 
+
+
 @media screen and (width >= 45rem){
     #root{
         grid-template-columns: 
