@@ -49,7 +49,7 @@ fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName)
                             <p>${pokemon.height}m</p>
                             <span class="details__info--gray"><p>Height</p></span>
                         </div>
-                        <div>
+                        <div class="">
                             <p>${pokemon.abilities.map(ability => ability.ability.name).join(", ")}</p>
                             <span class="details__info--gray"><p>Moves</p></span>
                         </div>
@@ -62,11 +62,11 @@ fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName)
 
                     ${pokemon.stats.map(stat => `
                     <article class="details__stats">
-                        <div class="">
+                        <div class="details__stats--flex">
                             <label for="${stat.stat.name}">${stat.stat.name}</label>
                             <span>${stat.base_stat}</span>
                             <meter class="details__meter" id="${stat.stat.name}" value="${stat.base_stat}" min="0" max="255"></meter>
-                        </div>
+                            </div>
                         </article>
                     `).join("")}
                 </article>

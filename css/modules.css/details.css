@@ -34,14 +34,19 @@ height: 20rem;
 .details__stats{
     grid-column: span 4;
     width: 100%;
+}
 
+.details__stats--headline{
+    margin-block: 1rem;
 }
 
 .details__meter{
     width: 100%;
 }
 
-
+.details__info--gray{
+    color: #666666;
+}
 
 
 
