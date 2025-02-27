@@ -19,6 +19,77 @@
     --water: #6493EB;
 }
 
+.color--grass{
+    background-color: var(--grass);
+}
+
+.color--water{
+    background-color: var(--water);
+}
+
+.color--fire{
+    background-color: var(--fire);
+}
+
+.color--bug{
+    background-color: var(--bug);
+}
+
+.color--dark{
+    background-color: var(--dragon);
+}
+
+.color--electric{
+    background-color: var(--electric);
+}
+
+.color--fairy{
+    background-color: var(--fairy);
+}
+
+.color--fighting{
+    background-color: var(--fighting);
+}
+
+.color--flying{
+    background-color: var(--flying);
+}
+.color--ghost{
+    background-color: var(--ghost);
+}
+
+.color--normal{
+    background-color: var(--normal);
+}
+
+.color--ground{
+    background-color: var(--ground);
+}
+
+.color--ice{
+    background-color: var(--ice);
+}
+
+.color--poison{
+    background-color: var(--poison);
+}
+
+.color--psychic{
+    background-color: var(--psychic);
+}
+
+.color--rock{
+    background-color: var(--rock);
+}
+
+.color--steel{
+    background-color: var(--steel);
+}
+
+.color--water{
+    background-color: var(--water);
+}
+
 
 
 .homeBg{
